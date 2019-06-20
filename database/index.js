@@ -8,17 +8,23 @@ db.on('error', console.error.bind(console, 'connection error:'));
 //   console.log('We are connected');
 // });
 const itemSpecificsSchema = mongoose.Schema({
-  Condition: String,
   id: Number,
+  LastUpdatedOn: Date,
+  Condition: String,
   Country: String,
   Model: String,
+  Material: String,
   Color: String,
   Brand: String,
   Style: String,
-  UpdatedOn: Date,
   Size: Number,
   Product_Line: String,
-  Features: String
+  Features: String,
+  Sport: String,
+  MPN: Number,
+  ArticleType: String,
+  OuterSole: String,
+  Activity: String
 }, {strict: false});
 itemSpecificsSchema.set('validateBeforeSave', false);
 const itemSpecifics = mongoose.model('itemSpecifics', itemSpecificsSchema);
@@ -37,7 +43,6 @@ const getData = (id, cb)=> {
     if (err) {
       console.log(err);
     }
-    console.log(result.Country);
     cb(result);
   });
 }
