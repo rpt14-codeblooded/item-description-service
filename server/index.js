@@ -8,6 +8,7 @@ const app = express();
 const port = 3001;
 const logger = require('morgan');
 app.use(express.static(path.join(__dirname, '../public')));
+app.use('/api/items/:id',express.static(path.join(__dirname,'../public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(logger('dev'));
 app.get('/api/items/:id', (req, res) => {
