@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(logger('dev'));
 app.get('/api/items/:id', (req, res) => {
   let id = req.params.id;
+  //res.send(req.params.id);
   getData(id, (result)=> {
     res.json(result);
   });

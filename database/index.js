@@ -37,6 +37,7 @@ const getData = (id, cb)=> {
     if (err) {
       console.log(err);
     }
+    console.log(result.Country);
     cb(result);
   });
 }

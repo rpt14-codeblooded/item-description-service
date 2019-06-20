@@ -2,10 +2,22 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-
+  constructor() {
+    super()
+    // this.state = {
+    //   id: null
+    // }
   }
+  // componentDidMount() {
+  //    fetch('/api/items')
+  //    .then((data)=>{
+  //       this.setState({
+  //         id: data
+  //       });
+  //    });
+
+
+  // }
   render() {
     return (
       <div>
