@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-
+import $ from 'jquery';
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      id: 1
     }
   }
   componentDidMount() {
@@ -14,17 +13,34 @@ class App extends Component {
     if (numbersArr) {
       const id = Number(numbersArr.join(""));
       if (id >= 0 && id <= 100) {
-        this.setState({
-          id: id
+        $.get(`/${id}`, (data)=> {
+          console.log('data', data);
+          let newState = {};
+          for (var key in data) {
+            if(data[key]) {
+              newState[key] = data[key]
+            }
+          }
+          this.setState(newState,()=>{});
         });
       }
+
     }
+
+
   }
   render() {
+    const itemSpecifics = Object.keys(this.state);
+    console.log(itemSpecifics);
+    const values = [];
+    itemSpecifics.forEach(val => {
+      values.push(this.state[val]);
+    });
+    console.log('values', values);
     return (
       <div>
-        <h3>I am App</h3>
-        <div>ID: {this.state.id}</div>
+        <h2 className="itemSpecifics">Item specifics</h2>
+        <div>{itemSpecifics[0]}: {values[0]}</div>
       </div>
     )
   }

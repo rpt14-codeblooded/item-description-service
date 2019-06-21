@@ -1,53 +1,59 @@
-// Condition: String,
-//   Country: String,
-//   Model: Schema.Types.Mixed,
-//   Color: String,
-//   Brand: String,
-//   Style: String,
-//   UpdatedOn: Date,
-//   Size: Number,
-//   Product_Line: String,
-//   Features: String
 const faker = require('faker');
 const data = [];
-//console.log(UpdatedOn,"\n", Condition,"\n",  Brand,"\n", Country,"\n", Color,"\n", Model, "\n",Style,"\n", Size,"\n", Product_Line,"\n", Features);
+
 for (var counter = 1; counter <=100; counter++) {
   let id = counter;
-  let LastUpdatedOn = faker.date.recent();
-  let Condition = faker.lorem.sentences();
-  let Brand = faker.lorem.word();
-  let Country = faker.address.country();
-  let Color = faker.commerce.color();
-  let Model = faker.lorem.word();
-  let Material = faker.commerce.productMaterial();
-  let Style = faker.lorem.words();
-  let Size = faker.random.number({min: 1, max: 13});
-  let Product_Line = faker.commerce.productName();
-  let Features = faker.lorem.sentences();
-  let Sport = faker.lorem.word();
-  let MPN = faker.random.number(1000000, 9999999);
-  let ArticleType = faker.commerce.productAdjective();
-  let OuterSole = faker.commerce.productMaterial();
-  let Activity = faker.commerce.productAdjective();
-  data.push({
+  let lastUpdatedOn = faker.date.recent();
+  let condition = faker.lorem.sentences();
+  let brand = faker.lorem.word();
+  let country = faker.address.country();
+  let color = faker.commerce.color();
+  let model = faker.lorem.word();
+  let material = faker.commerce.productMaterial();
+  let style = faker.lorem.words();
+  let size = faker.random.number({min: 1, max: 13});
+  let productLine = faker.commerce.productName();
+  let features = faker.lorem.sentences();
+  let sport = faker.lorem.word();
+  let mpn = faker.random.number({min:100000, max:999999});
+  let articleType = faker.commerce.productAdjective();
+  let outerSole = faker.commerce.productMaterial();
+  let activity = faker.commerce.productAdjective();
+  let obj = {
+    country,
+    model,
+    material,
+    color,
+    brand,
+    style,
+    size,
+    productLine,
+    features,
+    sport,
+    mpn,
+    articleType,
+    outerSole,
+    activity
+  }
+  let props = []
+  let newObj = {
     id,
-    LastUpdatedOn,
-    Condition,
-    Country,
-    Model,
-    Material,
-    Color,
-    Brand,
-    Style,
-    Size,
-    Product_Line,
-    Features,
-    Sport,
-    MPN,
-    ArticleType,
-    OuterSole,
-    Activity
-  });
+    lastUpdatedOn,
+    condition
+  };
+  for (var key in obj) {
+    props.push(key);
+  }
+
+  let max = Object.keys(obj).length - 1;
+  let random = faker.random.number({min:8, max: max});
+  for (var count = 0; count <=random; count++) {
+    let index = faker.random.number({min: 0, max: max});
+    newObj[props[index]] = obj[props[index]];
+
+  }
+  data.push(newObj);
+
 }
 
 module.exports = data;

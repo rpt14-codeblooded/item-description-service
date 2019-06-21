@@ -1,5 +1,5 @@
-const data = require('./fakeData');
 
+const data = require('./fakeData');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/items-detail', {useNewUrlParser : true });
 const db = mongoose.connection;
@@ -9,22 +9,22 @@ db.once('open', ()=> {
 });
 const itemSpecificsSchema = mongoose.Schema({
   id: Number,
-  LastUpdatedOn: Date,
-  Condition: String,
-  Country: String,
-  Model: String,
-  Material: String,
-  Color: String,
-  Brand: String,
-  Style: String,
-  Size: Number,
-  Product_Line: String,
-  Features: String,
-  Sport: String,
-  MPN: Number,
-  ArticleType: String,
-  OuterSole: String,
-  Activity: String
+  lastUpdatedOn: Date,
+  condition: String,
+  country: String,
+  model: String,
+  material: String,
+  color: String,
+  brand: String,
+  style: String,
+  size: Number,
+  productLine: String,
+  features: String,
+  sport: String,
+  mpn: Number,
+  articleType: String,
+  outerSole: String,
+  activity: String
 }, {strict: false});
 itemSpecificsSchema.set('validateBeforeSave', false);
 const itemSpecifics = mongoose.model('itemSpecifics', itemSpecificsSchema);
@@ -38,6 +38,7 @@ const save = (array) => {
 }
 save(data);
 
+console.log('testing');
 const getData = (id, cb)=> {
   itemSpecifics.findOne({id: id}, (err, result) => {
     if (err) {
@@ -47,7 +48,9 @@ const getData = (id, cb)=> {
   });
 }
 
-module.exports = getData;
+module.exports.getData = getData;
+
+
 
 
 
