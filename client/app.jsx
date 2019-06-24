@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
+import $ from 'jquery'
+import Description from './components/description-tab.jsx'
+
 class App extends Component {
   constructor() {
     super()
@@ -9,12 +11,11 @@ class App extends Component {
   }
   componentDidMount() {
     const currentPath = window.location.pathname;
-    const numbersArr = currentPath.match(/[0-9]/g)
+    const numbersArr = currentPath.match(/[0-9]/g);
     if (numbersArr) {
       const id = Number(numbersArr.join(""));
       if (id >= 0 && id <= 100) {
         $.get(`/${id}`, (data)=> {
-          console.log('data', data);
           let newState = {};
           for (var key in data) {
             if(data[key]) {
@@ -36,11 +37,10 @@ class App extends Component {
     itemSpecifics.forEach(val => {
       values.push(this.state[val]);
     });
-    console.log('values', values);
+
     return (
       <div>
-        <h2 className="itemSpecifics">Item specifics</h2>
-        <div>{itemSpecifics[0]}: {values[0]}</div>
+        <Description values={this.state}/>
       </div>
     )
   }

@@ -1,4 +1,3 @@
-
 const data = require('./fakeData');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/items-detail', {useNewUrlParser : true });
@@ -9,7 +8,7 @@ db.once('open', ()=> {
 });
 const itemSpecificsSchema = mongoose.Schema({
   id: Number,
-  lastUpdatedOn: Date,
+  lastUpdatedOn: String,
   condition: String,
   country: String,
   model: String,
@@ -36,9 +35,13 @@ const save = (array) => {
     }
   });
 }
-save(data);
+// to save data into database , commented out after saving once
+//save(data);
 
-console.log('testing');
+// to count total number of documents in itemSpecific model/ table
+// itemSpecifics.count({}, (err, count)=> {
+//   console.log(count);
+// })
 const getData = (id, cb)=> {
   itemSpecifics.findOne({id: id}, (err, result) => {
     if (err) {
@@ -48,7 +51,9 @@ const getData = (id, cb)=> {
   });
 }
 
-module.exports.getData = getData;
+module.exports = getData;
+
+
 
 
 

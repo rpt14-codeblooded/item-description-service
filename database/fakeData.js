@@ -1,9 +1,7 @@
 const faker = require('faker');
 const data = [];
-
 for (var counter = 1; counter <=100; counter++) {
   let id = counter;
-  let lastUpdatedOn = faker.date.recent();
   let condition = faker.lorem.sentences();
   let brand = faker.lorem.word();
   let country = faker.address.country();
@@ -19,6 +17,11 @@ for (var counter = 1; counter <=100; counter++) {
   let articleType = faker.commerce.productAdjective();
   let outerSole = faker.commerce.productMaterial();
   let activity = faker.commerce.productAdjective();
+  let month = faker.date.month();
+  let date = faker.random.number({min: 01, max: 31});
+  let year = faker.random.number({min: 2000, max: 2019});
+  let time = `${faker.random.number({min: 1, max:23})}:${faker.random.number({min: 01, max:59})}:${faker.random.number({min: 01, max:59})} PDT`;
+  let lastUpdatedOn = `${month} ${date}, ${year} ${time}`;
   let obj = {
     country,
     model,
