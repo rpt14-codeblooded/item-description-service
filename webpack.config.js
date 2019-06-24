@@ -21,28 +21,10 @@ module.exports = {
           }
         }
       },
-      // {
-      //   test: /\.css$/,
-      //   loader: combineLoaders([
-      //     {
-      //       loader: 'style-loader'
-      //     }, {
-      //       loader: 'css-loader',
-      //       query: {
-      //         modules: true,
-      //         localIdentName: '[name]__[local]___[hash:base64:5]'
-      //       }
-      //     }
-      //   ])
-      // },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       }
-    //   {
-    //     test: /\.css$/,
-    //     loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
-    // }
     ]
   }
 }

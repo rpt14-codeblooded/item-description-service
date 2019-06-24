@@ -1,26 +1,29 @@
 import React from 'react';
 import ReadMoreReact from 'read-more-react';
+import styled from 'styled-components';
+
+const StyledRow = styled.td`
+    width: 5%;
+    color: #333333;
+    font-size: 13px;
+    padding-left:10px;
+    fontFamily: Helvetica nueue, Helvetica, Verdana, Sans-serif;
+    `;
+const StyledRow2 = styled.td`
+      width: 25%;
+      color: #333333;
+      font-size: 13px;
+      font-family: Helvetica nueue, Helvetica, Verdana, Sans-serif;
+    `;
+const ReadMore = styled.div`
+      color: #333333;
+      font-size: 13px;
+      padding-top: 30px;
+      font-family: Helvetica nueue, Helvetica, Verdana, Sans-serif;
+      `;
+
 const Row = ({values, changeFormat})=> {
-  const row = {
-     width: '5%',
-     color: '#333333',
-     fontSize: '13px',
-     paddingLeft:'10px',
-     fontFamily: 'Helvetica nueue, Helvetica, Verdana, Sans-serif',
-  }
-  const row2 = {
-    width: '25%',
-    color: '#333333',
-    fontSize: '13px',
-    fontFamily: 'Helvetica nueue, Helvetica, Verdana, Sans-serif',
- }
- const readMore = {
-  width: '25%',
-  color: '#333333',
-  fontSize: '13px',
-  paddingTop: '30px',
-  fontFamily: 'Helvetica nueue, Helvetica, Verdana, Sans-serif',
- }
+
   const toCapital = (str)=> {
     if (str === 'mpn') {
       return 'MPN';
@@ -40,31 +43,35 @@ const Row = ({values, changeFormat})=> {
     if (requiredKeys[i] === 'condition') {
       items.push(
       <tr>
-        <td style={row}> {toCapital(newKey1)}:</td>
+        <StyledRow>{toCapital(newKey1)}:</StyledRow>
+        {/* <td style={row}> {toCapital(newKey1)}:</td> */}
         <td>
-          <ReadMoreReact style={readMore}
+          <ReadMore>
+          <ReadMoreReact
           text={values[requiredKeys[i]]}
           min={80}
           ideal={150}
           max={250}
           readMoreText={<a style={{color: '#0654BA', cursor: 'default'}}>...Read more</a>}
           />
+          </ReadMore>
         </td>
-        <td style={row}> {toCapital(newKey2)}:</td><td style={row2}>{values[requiredKeys[i + 1]]}</td>
+        <StyledRow>{toCapital(newKey2)}:</StyledRow>
+        <StyledRow2>{values[requiredKeys[i + 1]]}</StyledRow2>
       </tr>
       )
     } else if (newKey2) {
       items.push(
       <tr>
-        <td style={row}> {toCapital(newKey1)}:</td><td style={row2}>{values[requiredKeys[i]]}</td>
-        <td style={row}> {toCapital(newKey2)}:</td><td style={row2}>{values[requiredKeys[i + 1]]}</td>
+        <StyledRow>{toCapital(newKey1)}:</StyledRow><StyledRow2>{values[requiredKeys[i]]}</StyledRow2>
+        <StyledRow> {toCapital(newKey2)}:</StyledRow><StyledRow2>{values[requiredKeys[i + 1]]}</StyledRow2>
       </tr>
       );
     } else {
       items.push(
         <tr>
-          <td style={row}> {toCapital(newKey1)}:</td><td style={row2}>{values[requiredKeys[i]]}</td>
-          </tr>
+          <StyledRow> {toCapital(newKey1)}:</StyledRow><StyledRow2>{values[requiredKeys[i]]}</StyledRow2>
+        </tr>
       );
     }
   }
