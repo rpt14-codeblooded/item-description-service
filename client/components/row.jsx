@@ -1,19 +1,18 @@
 import React from 'react';
 import ReadMoreReact from 'read-more-react';
 import styled from 'styled-components';
-
+// font-family: Helvetica nueue, Helvetica, Verdana, Sans-serif;
 const StyledRow = styled.td`
-    width: 5%;
+    width: 10%;
     color: #333333;
-    font-size: 13px;
+    font-size: 16px;
     padding-left:10px;
-    fontFamily: Helvetica nueue, Helvetica, Verdana, Sans-serif;
+
     `;
 const StyledRow2 = styled.td`
       width: 25%;
       color: #333333;
-      font-size: 13px;
-      font-family: Helvetica nueue, Helvetica, Verdana, Sans-serif;
+      font-size: 16px;ß
     `;
 const ReadMore = styled.div`
       color: #333333;
@@ -44,13 +43,12 @@ const Row = ({values, changeFormat})=> {
       items.push(
       <tr>
         <StyledRow>{toCapital(newKey1)}:</StyledRow>
-        {/* <td style={row}> {toCapital(newKey1)}:</td> */}
         <td>
           <ReadMore>
           <ReadMoreReact
           text={values[requiredKeys[i]]}
           min={80}
-          ideal={150}
+          ideal={90}
           max={250}
           readMoreText={<a style={{color: '#0654BA', cursor: 'default'}}>...Read more</a>}
           />

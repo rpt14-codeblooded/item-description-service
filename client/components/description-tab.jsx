@@ -68,7 +68,7 @@ const Description = (props) => {
 
   const styledTab = {
     color: '#0654BA',
-    fontSize: '14px',
+    fontSize: '13px',
     fontFamily: 'Helvetica nueue, Helvetica, Verdana, Sans-serif',
     fontWeight: 'bold',
     padding: '8px 20px',
