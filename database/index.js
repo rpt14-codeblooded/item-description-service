@@ -6,10 +6,16 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', ()=> {
   console.log('We are connected');
 });
+
+const deleteDb = () => {
+  db.dropDatabase();
+  console.log('dropped');
+}
 const itemSpecificsSchema = mongoose.Schema({
   id: Number,
   lastUpdatedOn: String,
   condition: String,
+  details: String,
   country: String,
   model: String,
   material: String,
@@ -28,20 +34,24 @@ const itemSpecificsSchema = mongoose.Schema({
 itemSpecificsSchema.set('validateBeforeSave', false);
 const itemSpecifics = mongoose.model('itemSpecifics', itemSpecificsSchema);
 
-const save = (array) => {
-  itemSpecifics.create(array, (err, item)=> {
+// helper functions
+const save = (array,modelName) => {
+  modelName.create(array, (err, item)=> {
     if (err) {
       console.log(err);
     }
+    modelName.countDocuments({},(err, count)=>{
+      if (err) {
+        console.log(err);
+      }
+      console.log(count);
+    })
   });
 }
-// to save data into database , commented out after saving once
-//save(data);
+save(data,itemSpecifics);
 
-// to count total number of documents in itemSpecific model/ table
-// itemSpecifics.count({}, (err, count)=> {
-//   console.log(count);
-// })
+
+
 const getData = (id, cb)=> {
   itemSpecifics.findOne({id: id}, (err, result) => {
     if (err) {
@@ -51,7 +61,8 @@ const getData = (id, cb)=> {
   });
 }
 
-module.exports = getData;
+
+module.exports = {getData, itemSpecifics, save, deleteDb};
 
 
 

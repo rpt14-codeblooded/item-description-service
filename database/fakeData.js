@@ -11,7 +11,7 @@ for (var counter = 1; counter <=100; counter++) {
   let style = faker.lorem.words();
   let size = faker.random.number({min: 1, max: 13});
   let productLine = faker.commerce.productName();
-  let features = faker.lorem.sentences();
+  let features = faker.lorem.sentence();
   let sport = faker.lorem.word();
   let mpn = faker.random.number({min:100000, max:999999});
   let articleType = faker.commerce.productAdjective();
@@ -22,6 +22,7 @@ for (var counter = 1; counter <=100; counter++) {
   let year = faker.random.number({min: 2000, max: 2019});
   let time = `${faker.random.number({min: 1, max:23})}:${faker.random.number({min: 01, max:59})}:${faker.random.number({min: 01, max:59})} PDT`;
   let lastUpdatedOn = `${month} ${date}, ${year} ${time}`;
+  let details = faker.lorem.paragraphs();
   let obj = {
     country,
     model,
@@ -42,7 +43,8 @@ for (var counter = 1; counter <=100; counter++) {
   let newObj = {
     id,
     lastUpdatedOn,
-    condition
+    condition,
+    details
   };
   for (var key in obj) {
     props.push(key);
