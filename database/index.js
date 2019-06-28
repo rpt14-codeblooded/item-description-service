@@ -7,10 +7,7 @@ db.once('open', ()=> {
   console.log('We are connected');
 });
 
-const deleteDb = () => {
-  db.dropDatabase();
-  console.log('dropped');
-}
+
 const itemSpecificsSchema = mongoose.Schema({
   id: Number,
   lastUpdatedOn: String,
@@ -48,7 +45,9 @@ const save = (array,modelName) => {
     })
   });
 }
-save(data,itemSpecifics);
+const deleteDb = () => {
+  db.dropDatabase();
+}
 
 
 

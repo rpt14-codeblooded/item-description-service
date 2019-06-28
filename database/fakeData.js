@@ -18,9 +18,9 @@ for (var counter = 1; counter <=100; counter++) {
   let outerSole = faker.commerce.productMaterial();
   let activity = faker.commerce.productAdjective();
   let month = faker.date.month();
-  let date = faker.random.number({min: 01, max: 31});
+  let date = faker.random.number({min: 1, max: 31});
   let year = faker.random.number({min: 2000, max: 2019});
-  let time = `${faker.random.number({min: 1, max:23})}:${faker.random.number({min: 01, max:59})}:${faker.random.number({min: 01, max:59})} PDT`;
+  let time = `${faker.random.number({min: 1, max:23})}:${faker.random.number({min: 1, max:59})}:${faker.random.number({min: 1, max:59})} PDT`;
   let lastUpdatedOn = `${month} ${date}, ${year} ${time}`;
   let details = faker.lorem.paragraphs();
   let obj = {

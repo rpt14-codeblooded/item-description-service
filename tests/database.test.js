@@ -1,4 +1,4 @@
-const getData = require('../database/index.js');
+const {getData} = require('../database/index.js');
 
 
 test('it should return an object with id equal to 2', done => {

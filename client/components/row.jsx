@@ -1,7 +1,7 @@
 import React from 'react';
 import ReadMoreReact from 'read-more-react';
 import styled from 'styled-components';
-// font-family: Helvetica nueue, Helvetica, Verdana, Sans-serif;
+
 const StyledRow = styled.td`
     width: 10%;
     color: #333333;
@@ -34,7 +34,7 @@ const Row = ({values, changeFormat})=> {
   let items = []
   const keys = Object.keys(values);
   const requiredKeys = keys.filter((key)=> {
-    return key !=='last Updated On' && key !== '_id' && key !== '__v' && key !== 'id';
+    return key !=='last Updated On' && key !== '_id' && key !== '__v' && key !== 'id'&& key !== 'details';
   });
   for (var i = 0; i < requiredKeys.length; i+=2) {
     var newKey1 = changeFormat(requiredKeys[i]);

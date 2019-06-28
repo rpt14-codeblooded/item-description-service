@@ -3,6 +3,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 import Row from './row.jsx';
 import styled from 'styled-components';
+import Detail from './detail.jsx';
+import ShippingAndPayments from './shipping-payments.jsx';
 
 const StyledLink = styled.span`
   float: right;
@@ -11,14 +13,6 @@ const StyledLink = styled.span`
   padding: 10px;
   cursor: default;
   `;
-// const StyledTab = styled.span`
-//     color: #0654BA;
-//     font-size: 14px;
-//     font-family: Helvetica nueue, Helvetica, Verdana, Sans-serif;
-//     font-weight: bold;
-//     padding: 8px 20px;
-//     margin: 4px -1px 0px 0px;
-//   `;
 const StyledId = styled.div`
   color: #767676;
   font-size: 13px;
@@ -64,6 +58,15 @@ const StyledId = styled.div`
     font-weight: bold;
     margin: 10px 15px;
   `;
+
+  // helper to convert properties of state object to required format
+  const changeFormat = (str) => {
+    if (str !== undefined && str.toLowerCase() !== str ) {
+      str = str.replace(/([a-z])([A-Z])/g, '$1 $2');
+    }
+    return str;
+  }
+
 const Description = (props) => {
 
   const styledTab = {
@@ -74,16 +77,6 @@ const Description = (props) => {
     padding: '8px 20px',
     margin: '4px -1px 0px 0px'
   }
-
-  // helper to convert properties of state object to required format
-  const changeFormat = (str) => {
-    if (str !== undefined && str.toLowerCase() !== str ) {
-      str = str.replace(/([a-z])([A-Z])/g, '$1 $2');
-      console.log('str', str);
-    }
-    return str;
-  }
-
   var itemSpecifics = {}
   for (var key in props.values) {
     itemSpecifics[changeFormat(key)] = props.values[key];
@@ -106,9 +99,10 @@ const Description = (props) => {
               <Row values={itemSpecifics} changeFormat={changeFormat}/>
             </table>
           </StyledTable>
+          <Detail values={props.values}/>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <ShippingAndPayments/>
         </TabPanel>
       </Tabs>
   )
