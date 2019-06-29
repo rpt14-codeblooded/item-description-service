@@ -15,7 +15,6 @@ class App extends Component {
       const id = Number(numbersArr.join(""));
       if (id >= 0 && id <= 100) {
         $.get(`/${id}`, (data)=> {
-          console.log('data:', data)
           let newState = {};
           for (var key in data) {
             if(data[key]) {
