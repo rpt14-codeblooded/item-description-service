@@ -14,7 +14,7 @@ class App extends Component {
     if (numbersArr) {
       const id = Number(numbersArr.join(""));
       if (id >= 0 && id <= 100) {
-        $.get(`/${id}`, (data)=> {
+        $.get(`/api/items/${id}`, (data)=> {
           let newState = {};
           for (var key in data) {
             if(data[key]) {
