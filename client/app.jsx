@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
 import Description from './components/description-tab.jsx'
-
 class App extends Component {
   constructor() {
     super()
@@ -15,7 +14,7 @@ class App extends Component {
     if (numbersArr) {
       const id = Number(numbersArr.join(""));
       if (id >= 0 && id <= 100) {
-        $.get(`/${id}`, (data)=> {
+        $.get(`/api/items/${id}`, (data)=> {
           let newState = {};
           for (var key in data) {
             if(data[key]) {
@@ -32,7 +31,6 @@ class App extends Component {
   }
   render() {
     const itemSpecifics = Object.keys(this.state);
-    console.log(itemSpecifics);
     const values = [];
     itemSpecifics.forEach(val => {
       values.push(this.state[val]);

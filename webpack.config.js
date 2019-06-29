@@ -1,5 +1,4 @@
 const path = require('path');
-const combineLoaders = require('combine-loader');
 const SRC_DIR = path.join(__dirname, 'client');
 const DIST_DIR = path.join(__dirname, 'public/dist');
 module.exports = {
