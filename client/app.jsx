@@ -38,7 +38,6 @@ class App extends Component {
     });
 
     return (
-
       <div>
         <Description values={this.state}/>
       </div>

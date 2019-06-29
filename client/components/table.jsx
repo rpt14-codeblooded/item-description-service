@@ -9,22 +9,23 @@ const FieldsDiv = styled.div`
   height: 30px;
   margin: 10px 25px;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  align-items: center;
+
 `;
 const FieldValue1 = styled.div`
-  float: left;
-  margin: 1% 2% 0 2% ;
+  margin: 0 2%;
+  flex-basis: 100px;
 `;
 const FieldValue2 = styled.div`
-  float: left;
-  margin: 1% 5% ;
+  margin: 0% 7%;
+  flex-basis: 100px;
 `;
 const FieldValue3 = styled.div`
-  float: left;
-  margin: 1% 23% 0 6% ;
+  flex-basis: 280px;
 `;
 const FieldValue4 = styled.div`
-  float: left;
-  margin: 1% 0% 0 5% ;
+  margin: 0 0 0 5%;
 `;
 const TableData = styled.div`
   color: #5D5D5D;
@@ -32,24 +33,23 @@ const TableData = styled.div`
   margin: 10px 25px;
   height: 25px;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  align-items: center;
 `;
 const Data1 = styled.div`
-  float: left;
+  flex-basis: 100px;
   margin: 0 2% ;
   font-weight: bold;
 `;
 const Data2 = styled.div`
-  float: left;
-  margin: 0 0 0 6.5% ;
+  flex-basis: 100px;
+  margin: 0% 7%;
 `;
 const Data3 = styled.div`
-  float: left;
-  margin: 0 0 0 5%;
+  flex-basis: 280px;
+  margin: 0 5% 0 0 ;
 `;
 const Data4 = styled.div`
-  float: left;
-  margin: 0 0 0 10.5%;
-  margin-bottom: 2%;
 `;
 const ColoredSpan = styled.span`
   color: #23804F;
@@ -76,11 +76,14 @@ const StyledLink = styled.a`
     text-decoration: underline;
   }
 `;
-const TableData2 = styled(TableData)`
-  border: none;
+const TableData2 = styled.div`
+  color: #5D5D5D;
+  background-color: white;
+  margin: 10px 25px;
+  height: 25px;
 `;
-const DataTb2 = styled(Data1)`
-  font-weight: normal;
+const DataTb2 = styled.div`
+  margin: 0 2% ;
 `;
 const Table = ()=> {
     return (

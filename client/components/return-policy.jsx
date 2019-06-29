@@ -18,11 +18,13 @@ const FieldsDiv = styled.div`
   height: 30px;
   margin: 10px 25px;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  align-items: center;
 `;
 
 const FieldValues = styled.div`
-  float: left;
-  margin: 1% 15% 0 2% ;
+  margin: 0 2%;
+  flex-basis: 265px;
 `;
 const DataDiv = styled.div`
   color: #5D5D5D;
@@ -30,18 +32,20 @@ const DataDiv = styled.div`
   margin: 10px 25px;
   height: 20px;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  align-items: center;
 `;
+
 const Data1 = styled.div`
-  float: left;
-  margin: 0 0 0 2% ;
+  margin: 0 2%;
+  flex-basis: 290px;
 `;
+
 const Data2 = styled.div`
-  float: left;
-  margin: 0 0 0 29% ;
+  flex-basis: 320px;
+
 `;
 const Data3 = styled.div`
-  float: left;
-  margin: 0 0 0 19.5% ;
 `;
 const BottomDiv = styled.div`
   height: 50px;

@@ -18,14 +18,14 @@ const FieldsDiv = styled.div`
   height: 30px;
   margin: 10px 25px;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  align-items: center;
 `;
 
 const FieldValues = styled.div`
-  float: left;
   margin: 1% 15% 0 1% ;
 `;
 const DataDiv = styled.div`
-  background-color: white;
   margin: 10px 25px;
   border-bottom: 1px solid #aaa;
 `;
@@ -33,13 +33,16 @@ const CardsDiv = styled.div`
   margin: 1.5% 0 0 1.5% ;
 `;
 
+const ImageContainer = styled.div`
+  display: flex;
+`;
 const StyledImage = styled.img`
-  margin: 3% 3%;
-  float: left;
+  margin: 3% 0 25% 3%;
+  flex-basis: 100px;
 `;
 const SpecialFinanceDiv = styled.div`
   float: left;
-  margin-left: 25%;
+  margin-left: 15%;
   margin-top: 1%;
   font-family :Helvetica nueue, Helvetica, Verdana, Sans-serif;
 `;
@@ -54,6 +57,7 @@ const StyledLink = styled.a`
     cursor:pointer;
   }
 `;
+
 const PaymentDetails = ()=> {
   return (
     <Container>
@@ -68,6 +72,7 @@ const PaymentDetails = ()=> {
         <img src="https://www.merchantequip.com/image/?bgcolor=FFFFFF&logos=p|v|m|a|d&height=32" />
         </CardsDiv>
       </DataDiv>
+      <ImageContainer>
       <StyledImage src="https://p.ebaystatic.com/aw/logos/logoPaypalCreditv2_157x55.png"></StyledImage>
       <SpecialFinanceDiv>
         <StyledHeader2>Special financing available</StyledHeader2>
@@ -76,6 +81,7 @@ const PaymentDetails = ()=> {
         <p>Interest will be charged to your account from the purchase<br/> date if the balance is not paid in full within 6 months.<br/> Minimum monthly payments are required. Subject to credit<br/> approval. <StyledLink>See terms</StyledLink></p>
         <p>The PayPal Credit account is issued by Synchrony Bank.</p>
       </SpecialFinanceDiv>
+      </ImageContainer>
     </Container>
   )
 }

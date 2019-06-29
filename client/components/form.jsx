@@ -11,8 +11,18 @@ const StyledQuantity = styled.input`
   height: 22px;
   margin-left: 10px;
 `;
+const StyledLabel2 = styled.label`
+  margin-left: 160px;
+  color: #333333
+`;
+const StyledZip = styled.input`
+  width: 90px;
+  height: 23px;
+  margin-left: 20px;
+  border: 1px solid #333333;
+`;
 const StyledButton = styled.button`
-  margin-left: 150px;
+  margin-left: 15px;
   color: #0654ba;
   font-weight: bold;
   padding: 0px;
@@ -29,6 +39,7 @@ class Form extends React.Component {
     this.state = {
       quantity: null,
       country: null,
+      zipCode: null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -57,6 +68,10 @@ class Form extends React.Component {
           Change country:
           <Select handleChange={this.handleChange} name="country"/>
         </StyledLabel>
+        <StyledLabel2>
+          ZIP Code:
+          <StyledZip type="text" name="zipCode" onChange={this.handleChange} />
+        </StyledLabel2>
         <StyledButton >Get Rates</StyledButton>
       </form>
 

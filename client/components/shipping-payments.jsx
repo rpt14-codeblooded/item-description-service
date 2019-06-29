@@ -43,11 +43,6 @@ const StyledPara2 = styled.p`
   padding-left:25px;
   padding-bottom: 10px;
 `;
-// const AsteriskDiv = styled.div`
-//   color: #767676;
-//   font-size: 10px;
-//   font-family: Verdana;
-// `;
 
 const ShippingAndPayments = (props) => {
   return (
